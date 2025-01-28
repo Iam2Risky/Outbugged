@@ -14,6 +14,13 @@ def Auswertung(textInput):
             return answer
         elif softHard == "software":
             return "Leider hat das Programm aktuell Wartungsarbeiten, weshalb sie nicht darauf zugreifen können"
+    elif Theme == "update":
+        return "Die neue softwareversion finden sie auf Bugland.de/Software/. Sie können auch in dem Programm in die Einstellungen und dann unter Update & Sicherheit, den automatisches update knopf drücken. "
+    elif Theme == "break" or "replace":
+        answer = Answering("part")
+        return answer
+
+
 
 def Answering(check):
     inputCheck = check
@@ -40,7 +47,9 @@ def Answering(check):
                         if "yes" in cableInput:
                             return "Ein Techniker wird sich bald um sie kümmern"
                     elif cableInput == "yes":
-                        print("mach weiter hier") 
+                        print("mach weiter hier")
+    elif inputCheck == "part":
+        print("xy")
 
 
                             
@@ -62,7 +71,7 @@ def TopicMatching(textInput):
     for Begriff, synonyms in synonyms.items():
         if any(synonym in text for synonym in synonyms):
             return Begriff
-    return None
+    return "Other"
 
 
 def ProblemMatching(themeInput):
