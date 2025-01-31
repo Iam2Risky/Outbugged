@@ -60,7 +60,7 @@ def Answering(check):
                 if "yes" in cableInput:
                     return "A technician will be with you soon"
                 elif cableInput == "no":
-                    return
+                    return "Please fill a ticket for further help"
             elif "no" in cableInput:
                 cableInput = input("Would you like to Test? (Yes / No)\n")
                 cableInput = cableInput.lower()
