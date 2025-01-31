@@ -1,7 +1,6 @@
 """
 Main Script für den Chatbot
 """
-name = ""
 
 import text
 
@@ -13,16 +12,18 @@ class Bot:
         self.name = name
             
     def Startup(self):
-        userInput = input(f"Hello my name is {self.name}.\nWhat kind of bot do you have problem with?\n1. Gardenbettle\n2. Cleanbug\n3. Windowfly\n4. Overall question")
+        userInput = input(f"Hello my name is {self.name}.\nWhat kind of bot do you have problem with?\n1. Gardenbettle\n2. Cleanbug\n3. Windowfly\n4. Overall question\n")
+        global name
         if userInput == "1":
             name = "Gardenbeetle"
         elif userInput == "2":
             name = "Cleanbug"
         elif userInput == "3":
             name = "Windowfly"
+        elif userInput == "4":
+            name = "other"
         else:
             return("Please describe your problem")
-        return(f"You have a problem with {name}, please describe your problem")
         
 
 class Main:
@@ -31,11 +32,15 @@ class Main:
         self.Bot = Bot("Debuggy")
 
     def run(self):
-        print(self.Bot.Startup())
-        while True:
-            userInput = input("")
-            print(text.Auswertung(userInput, name))
+        self.Bot.Startup()
+        run = text.mainline(name)
+        return run
 
 if __name__ == "__main__":
     app = Main()
-    app.run()
+    while True:
+        fortnite = app.run()
+        if fortnite == "break":
+            break
+
+        
