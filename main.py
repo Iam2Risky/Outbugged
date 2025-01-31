@@ -1,6 +1,5 @@
 """
 Main Script für den Chatbot
-
 """
 name = ""
 
