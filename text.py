@@ -84,7 +84,10 @@ def TopicMatching(textInput):
         "load": ["load", "loading", "upload", "download", "carrying", "burden", "freight", "payload"],
         "break": ["break", "broken", "fracture", "rupture", "snap", "crack", "shatter", "split"],
         "update": ["update", "refresh", "upgrade", "revise", "renew", "modify", "patch", "enhance", "improve"],
-        "replace": ["replace", "substitute", "exchange", "swap", "change", "switch", "supplant", "alternate", "displace"]
+        "replace": ["replace", "substitute", "exchange", "swap", "change", "switch", "supplant", "alternate", "displace"],
+        "gardenbeetle": ["gardenbeetle", "beetle", "bug", "garden", "käfer", "gartenkäfer"],
+        "cleanbug": ["cleanbug", "clean", "putzen", "reinigungsbot", "staubsauger", "staubsaugroboter"],
+        "windowfly": ["windowfly", "window", "fenster", "fliege", "fensterputzroboter", "fenster"]
     }
 
     text = text.lower()
