@@ -1,8 +1,15 @@
 Cable = "Looks like your cable got damaged, have you tried another cable or tested the cable on another product? (Yes / No)"
 Port = "If the Cable is not the Problem, then it may be the Port, but for that I would like to send you to one of our Technicians. Would you Like that? (Yes/No)"
 
-def Auswertung(textInput):
+
+def mainline(textInput, inputName):
+    print("")
+    
+
+def Auswertung(textInput, inputName):
+    global name
     text = textInput
+    name = inputName
     Theme = TopicMatching(text)
     if Theme == "charging":
         answer = Answering("Cable")
@@ -13,9 +20,9 @@ def Auswertung(textInput):
             answer = Answering("Cable")
             return answer
         elif softHard == "software":
-            return "Leider hat das Programm aktuell Wartungsarbeiten, weshalb sie nicht darauf zugreifen können"
+            return "Unfortunately due to maintanance the software is currently not available. Please try again later."
     elif Theme == "update":
-        return "Die neue softwareversion finden sie auf Bugland.de/Software/. Sie können auch in dem Programm in die Einstellungen und dann unter Update & Sicherheit, den automatisches update knopf drücken. "
+        return "You can find the new softwareversion on bugland.de/software. You can also turn on automatic updates in you Settings under Updates - Security"
     elif Theme == "break" or "replace":
         answer = Answering("part")
         return answer
@@ -32,12 +39,12 @@ def Answering(check):
                 cableInput = input("If the Cable is not the Problem, then it may be the Port, but for that I would like to send you to one of our Technicians. Would you Like that? (Yes/No)")
                 cableInput = cableInput.lower()
                 if "yes" in cableInput:
-                    return "Ein Techniker wird sich bald um sie kümmern"
+                    return "A technician will be with you soon"
             elif "no" in cableInput:
                 cableInput = input("Would you like to Test? (Yes / No)")
                 cableInput = cableInput.lower()
                 if cableInput == "No":
-                    return "Ein Techniker wird sich bald um sie kümmern"
+                    return "A technician will be with you soon"
                 elif cableInput == "Yes":
                     cableInput = input("Does the Cable have a problem? (Yes / No)")
                     cableInput = cableInput.lower()
@@ -45,11 +52,24 @@ def Answering(check):
                         cableInput = input("If the Cable is not the Problem, then it may be the Port, but for that I would like to send you to one of our Technicians. Would you Like that? (Yes/No)")
                         cableInput = cableInput.lower()
                         if "yes" in cableInput:
-                            return "Ein Techniker wird sich bald um sie kümmern"
+                            return "A technician will be with you soon"
                     elif cableInput == "yes":
                         print("mach weiter hier")
     elif inputCheck == "part":
-        partInput = input("Was für ein Teil muss ersetzt werden? Bitte nenne uns die teil nummer")
+        while True:
+            partInput = input("Which part needs to be replaced? please enter the partnumber")
+            partInput = partInput.lower()
+            if partInput.isdigit():
+                print(f"do you want to order the part with the part number: {partInput}?")
+                partInput = input("Yes / No")
+                partInput = partInput.lower()
+                if partInput == "yes":
+                    print("You will reveice your Order Notice shortly, instructions on how to replace the part can be found in the scope of delivery")
+                    break
+                elif partInput == "no":  
+                    print("Then get creative and print your own stuff.")   
+            else:
+                print("please enter a valid part number")
 
 
                             

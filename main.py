@@ -2,6 +2,7 @@
 Main Script für den Chatbot
 
 """
+name = ""
 
 import text
 
@@ -13,9 +14,17 @@ class Bot:
         self.name = name
             
     def Startup(self):
-        return(f"Hello my name is {self.name}.\nWhat kind of bot do you have problem with\n1. Gardenbettle\n2. Cleanbug\n 3. Windowfly")
-    
-    
+        userInput = input(f"Hello my name is {self.name}.\nWhat kind of bot do you have problem with?\n1. Gardenbettle\n2. Cleanbug\n3. Windowfly\n4. Overall question")
+        if userInput == "1":
+            name = "Gardenbeetle"
+        elif userInput == "2":
+            name = "Cleanbug"
+        elif userInput == "3":
+            name = "Windowfly"
+        else:
+            return("Please describe your problem")
+        return(f"You have a problem with {name}, please describe your problem")
+        
 
 class Main:
     def __init__(self):
@@ -26,7 +35,7 @@ class Main:
         print(self.Bot.Startup())
         while True:
             userInput = input("")
-            print(text.Auswertung(userInput))
+            print(text.Auswertung(userInput, name))
 
 if __name__ == "__main__":
     app = Main()
