@@ -15,8 +15,6 @@ class Bot:
     def Startup(self):
         return(f"Hello my name is {self.name}.\nWhat kind of bot do you have problem with\n1. Gardenbettle\n2. Cleanbug\n 3. Windowfly")
     
-    def Response(self, userInput):
-        print("Work in progress")
     
 
 class Main:

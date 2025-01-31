@@ -49,7 +49,7 @@ def Answering(check):
                     elif cableInput == "yes":
                         print("mach weiter hier")
     elif inputCheck == "part":
-        print("xy")
+        partInput = input("Was für ein Teil muss ersetzt werden? Bitte nenne uns die teil nummer")
 
 
                             
